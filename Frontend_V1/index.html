@@ -1,0 +1,28 @@
+<!-- frontend/index.html -->
+   <!DOCTYPE html>
+   <html lang="en">
+     <head>
+       <meta charset="UTF-8">
+       <title>Frontend 1.0</title>
+     </head>
+     <body>
+       <h1>Frontend 1.0</h1>
+       <form id="data-form">
+         <input type="text" id="input-data" required />
+         <button type="submit">Отправить</button>
+       </form>
+       <script>
+         document.getElementById('data-form').onsubmit = function(event) {
+           event.preventDefault();
+           const data = document.getElementById('input-data').value;
+           fetch('http://localhost:7000/submit', {
+             method: 'POST',
+             headers: {
+               'Content-Type': 'application/json',
+             },
+             body: JSON.stringify({ data: data }),
+           }).then(response => alert('Данные отправлены!'));
+         }
+       </script>
+     </body>
+   </html>
