@@ -21,7 +21,7 @@
          document.getElementById('data-form').onsubmit = function(event) {
            event.preventDefault();
            const data = document.getElementById('input-data').value;
-           fetch('http://localhost:8000/submit', {
+           fetch('http://localhost:4000/submit', {
              method: 'POST',
              headers: {
                'Content-Type': 'application/json',
